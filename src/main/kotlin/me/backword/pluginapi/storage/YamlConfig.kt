@@ -22,7 +22,9 @@ class YamlConfig(private val path: Path) {
 
     fun getOrCreateSection(path: String): ConfigurationSection {
         if (reload().isConfigurationSection(path)) return config.getConfigurationSection(path)!!
-        return config.createSection(path).also { save() }
+        val section = config.createSection(path)
+        save()
+        return config
     }
 
     fun save(): FileConfiguration {

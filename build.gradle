@@ -14,7 +14,3 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib'
     compileOnly 'com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT'
 }
-
-compileKotlin {
-    kotlinOptions.jvmTarget = '11'
-}
