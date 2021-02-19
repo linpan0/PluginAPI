@@ -9,8 +9,8 @@ class Arguments(private val args: Array<String>) {
     fun length() = args.size
     fun next() = args[index++]
 
-    @NotNull fun <T> next(resolver: ArgumentResolver<T>, error: String) = next(resolver, CommandException(error))
-    @NotNull fun <T> next(resolver: ArgumentResolver<T>, exception: CommandException) = next(resolver) ?: throw exception
+    fun <T> next(resolver: ArgumentResolver<T>, error: String) = next(resolver, CommandException(error))
+    fun <T> next(resolver: ArgumentResolver<T>, exception: CommandException) = next(resolver) ?: throw exception
     fun <T> next(resolver: ArgumentResolver<T>): T? {
         try {
             if (args.isEmpty()) return null
@@ -20,8 +20,8 @@ class Arguments(private val args: Array<String>) {
         }
     }
 
-    @NotNull fun nextString(error: String) = nextString(CommandException(error))
-    @NotNull fun nextString(exception: CommandException) = nextString() ?: throw exception
+    fun nextString(error: String) = nextString(CommandException(error))
+    fun nextString(exception: CommandException) = nextString() ?: throw exception
     fun nextString(): String? {
         if (args.isEmpty()) return null
         return next()
