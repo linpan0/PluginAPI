@@ -8,7 +8,7 @@ class Arguments(private val args: Array<String>) {
     fun length() = args.size
     fun next() = args[index++]
 
-    fun <T> next(resolver: ArgumentResolver<T>, exception: CommandException) = next(resolver) ?: throw exception
+    fun <T> next(resolver: ArgumentResolver<T>, exception: CommandException): T = next(resolver) ?: throw exception
     fun <T> next(resolver: ArgumentResolver<T>, error: String): T = next(resolver, CommandException(error))
     fun <T> next(resolver: ArgumentResolver<T>): T? {
         try {
