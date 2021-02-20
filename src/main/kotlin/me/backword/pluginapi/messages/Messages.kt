@@ -13,5 +13,12 @@ object Messages {
         this.messageConfig = messageConfig
     }
 
-    fun getMessage(key: String, vararg args: String) = (messageConfig.reload().getString(key) ?: "").colorize().apply { args.indices.forEach { replace("{$it}", args[it]) } }
+    fun getMessage(key: String, vararg args: String): String {
+        var message = messageConfig.reload().getString(key)?.colorize() ?: return ""
+        for (i in args.indices) {
+            message = message.replace("{$i}", args[i])
+        }
+
+        return message
+    }
 }
