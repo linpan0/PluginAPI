@@ -24,7 +24,7 @@ class YamlConfig(private val path: Path) {
         if (reload().isConfigurationSection(path)) return config.getConfigurationSection(path)!!
         val section = config.createSection(path)
         save()
-        return config
+        return section
     }
 
     fun save(): FileConfiguration {
