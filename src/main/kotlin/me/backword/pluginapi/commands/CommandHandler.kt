@@ -27,7 +27,5 @@ class CommandHandler(private val command: Command, vararg aliases: String) : org
         return true
     }
 
-    override fun tabComplete(sender: CommandSender, alias: String, args: Array<String>): MutableList<String> {
-        return command.tabComplete(sender, Arguments(args))
-    }
+    override fun tabComplete(sender: CommandSender, alias: String, args: Array<String>) = command.tabComplete(sender, Arguments(args))
 }
