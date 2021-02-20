@@ -6,14 +6,16 @@ class Arguments(private val args: Array<String>) {
     private var index = 0
     val length = args.size
     operator fun get(index: Int) = args[index]
-    fun next() = args[index++]
+    fun next() = if (hasNext()) args[index++] else null
+    fun hasNext() = index < length
 
     fun <T> next(resolver: ArgumentResolver<T>, error: String) = next(resolver, CommandException(error))
     fun <T> next(resolver: ArgumentResolver<T>, exception: CommandException) = next(resolver) ?: throw exception
     fun <T> next(resolver: ArgumentResolver<T>): T? {
         try {
             if (args.isEmpty()) return null
-            return resolver.resolve(next())
+            val next = next() ?: return null
+            return resolver.resolve(next)
         } catch (e: Throwable) {
             return null
         }
