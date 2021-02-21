@@ -1,6 +1,5 @@
 package me.backword.pluginapi.storage
 
-import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.configuration.file.YamlConfiguration
 import java.nio.file.Files
@@ -18,13 +17,6 @@ class YamlConfig(private val path: Path) {
         }
 
         config.load(path.toFile())
-    }
-
-    fun getOrCreateSection(path: String): ConfigurationSection {
-        if (reload().isConfigurationSection(path)) return config.getConfigurationSection(path)!!
-        val section = config.createSection(path)
-        save()
-        return section
     }
 
     fun save(): FileConfiguration {
