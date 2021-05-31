@@ -6,7 +6,7 @@ import java.nio.file.Files
 import java.nio.file.Path
 
 class YamlConfig(private val path: Path) {
-    val config = YamlConfiguration()
+    val data = YamlConfiguration()
 
     init {
         if (!Files.exists(path)) {
@@ -16,16 +16,16 @@ class YamlConfig(private val path: Path) {
             else Files.copy(copyPath, path)
         }
 
-        config.load(path.toFile())
+        data.load(path.toFile())
     }
 
     fun save(): FileConfiguration {
-        config.save(path.toFile())
-        return config
+        data.save(path.toFile())
+        return data
     }
 
     fun reload(): FileConfiguration {
-        config.load(path.toFile())
-        return config
+        data.load(path.toFile())
+        return data
     }
 }

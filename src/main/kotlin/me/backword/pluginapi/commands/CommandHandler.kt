@@ -1,7 +1,7 @@
 package me.backword.pluginapi.commands
 
 import me.backword.pluginapi.commands.arguments.Arguments
-import me.backword.pluginapi.commands.exception.CommandException
+import me.backword.pluginapi.commands.exception.InvalidSyntaxException
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
@@ -20,7 +20,7 @@ class CommandHandler(private val command: Command, vararg aliases: String) : org
                 isPlayer && args.size < command.requiredPlayerLength || !isPlayer && args.size < command.requiredConsoleLength -> sender.sendMessage("§9Arguments> §cNot enough arguments!")
                 else -> command.execute(sender, Arguments(args))
             }
-        } catch (e: CommandException) {
+        } catch (e: InvalidSyntaxException) {
             sender.sendMessage(e.message!!)
         }
 
