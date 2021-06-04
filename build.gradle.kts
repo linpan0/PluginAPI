@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "1.5.10"
-    maven
+    id("maven")
 }
 
 group = "me.backword"
