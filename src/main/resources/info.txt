@@ -1,0 +1,11 @@
+Features:
+  Command API
+  ItemBuilder
+  Event API
+  Color Extensions
+  Menu/PaginatedMenu - TODO
+  YamlConfig - TODO: make better
+    - Wrapper of Spigot YamlConfiguration
+  Spigot Reflection Helper
+  Messages API
+    - Bit iffy..?
