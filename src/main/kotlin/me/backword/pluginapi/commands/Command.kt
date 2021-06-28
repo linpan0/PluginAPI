@@ -5,6 +5,6 @@ import org.bukkit.command.CommandSender
 
 abstract class Command(val playerOnly: Boolean, val requiredPlayerLength: Int, val requiredConsoleLength: Int, val maxLength: Int) {
     val permissions = hashMapOf<Int, String>()
-    abstract fun execute(sender: CommandSender, args: Arguments)
+    abstract fun run(sender: CommandSender, args: Arguments)
     open fun tabComplete(sender: CommandSender, args: Arguments) = mutableListOf<String>()
 }

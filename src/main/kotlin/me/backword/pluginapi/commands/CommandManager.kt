@@ -7,9 +7,7 @@ import java.lang.reflect.Field
 
 class CommandManager(private val plugin: Plugin) {
     companion object {
-        val COMMAND_MAP_FIELD: Field = Bukkit.getServer()::class.java.getDeclaredField("commandMap").apply {
-            isAccessible = true
-        }
+        val COMMAND_MAP_FIELD: Field = Bukkit.getServer()::class.java.getDeclaredField("commandMap").apply { isAccessible = true }
     }
 
     private val commandMap = COMMAND_MAP_FIELD.get(Bukkit.getServer()) as CommandMap

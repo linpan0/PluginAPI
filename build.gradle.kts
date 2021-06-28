@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.5.10"
+    kotlin("jvm") version "1.5.20"
     id("maven")
 }
 
@@ -13,11 +13,11 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    compileOnly("com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.17-R0.1-SNAPSHOT")
 }
 
 tasks {
     compileKotlin {
-        kotlinOptions.jvmTarget = "15"
+        kotlinOptions.jvmTarget = "16"
     }
 }

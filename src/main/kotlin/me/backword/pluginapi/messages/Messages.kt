@@ -1,7 +1,7 @@
 package me.backword.pluginapi.messages
 
 import me.backword.pluginapi.storage.YamlConfig
-import me.backword.pluginapi.utils.colorize
+import me.backword.pluginapi.color.colorize
 import org.bukkit.command.CommandSender
 
 fun CommandSender.message(key: String, vararg args: String) = sendMessage(Messages.getMessage(key, *args))
