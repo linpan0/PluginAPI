@@ -68,22 +68,3 @@ open class StandardMenu(private val name: String, private val size: Int) : Menu 
         fun build() = Button(itemStack, onClick)
     }
 }
-
-fun main() {
-    menu {
-        name = "Lol yeah"
-        size = 23
-
-        buttons {
-            button {
-                onClick {
-
-                }
-            }
-
-            button(23) {
-
-            }
-        }
-    }
-}
