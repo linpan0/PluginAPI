@@ -18,7 +18,7 @@ class CommandHandler(private val command: Command, vararg aliases: String) : org
                 !isPlayer && command.playerOnly -> sender.sendMessage("§9Permission> §cThis command can only be used by in-game players!")
                 args.size > command.maxLength -> sender.sendMessage("§9Arguments> §cToo many arguments!")
                 isPlayer && args.size < command.requiredPlayerLength || !isPlayer && args.size < command.requiredConsoleLength -> sender.sendMessage("§9Arguments> §cNot enough arguments!")
-                else -> command.execute(sender, Arguments(args))
+                else -> command.run(sender, Arguments(args))
             }
         } catch (e: InvalidSyntaxException) {
             sender.sendMessage(e.message!!)

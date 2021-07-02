@@ -26,8 +26,5 @@ class Arguments(private val args: Array<String>) {
 
     fun join(delimiter: String, error: String) = join(delimiter, InvalidSyntaxException(error))
     fun join(delimiter: String, exception: InvalidSyntaxException) = join(delimiter) ?: throw exception
-    fun join(delimiter: String): String? {
-        val joined = args.copyOfRange(index, args.size).joinToString(delimiter).trim()
-        return joined.ifEmpty { null }
-    }
+    fun join(delimiter: String) = args.copyOfRange(index, args.size).joinToString(delimiter).trim().ifEmpty { null }
 }
