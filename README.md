@@ -1,6 +1,6 @@
 For Developers
 ------
-* Tepository information:
+* Repository information:
 ```
 repositories {
     maven("https://maven.pkg.github.com/bqckword/pluginapi")
