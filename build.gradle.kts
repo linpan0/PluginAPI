@@ -18,6 +18,8 @@ dependencies {
 
 tasks {
     compileKotlin {
+        sourceCompatibility = JavaVersion.VERSION_16.toString()
+        targetCompatibility = JavaVersion.VERSION_16.toString()
         kotlinOptions.jvmTarget = "16"
     }
 }
