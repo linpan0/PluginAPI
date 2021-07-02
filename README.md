@@ -1,14 +1,14 @@
 For Developers
 ------
 * Repository information:
-```kotlin
+```java
 repositories {
     maven("https://maven.pkg.github.com/bqckword/pluginapi")
 }
 ```
 
 * Artifact Information:
-```kotlin
+```java
 dependencies {
     implementation("me.backword:pluginapi:x.y.z")
 }
