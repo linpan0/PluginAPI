@@ -7,8 +7,8 @@ group = "me.backword"
 version = "1.0.0"
 
 repositories {
-    mavenCentral()
     maven("https://papermc.io/repo/repository/maven-public/")
+    mavenCentral()
 }
 
 dependencies {
