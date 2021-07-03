@@ -5,7 +5,7 @@ Setup Instructions
 -----
 * ``git clone https://github.com/Bqckword/PluginAPI.git``
 * ``cd PluginAPI``
-* ``./gradlew publishToMavenLocal``
+* ``gradlew publishToMavenLocal``
 
 Artifact Information
 -----
