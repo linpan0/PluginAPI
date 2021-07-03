@@ -55,5 +55,8 @@ abstract class AbstractItemBuilder<T : AbstractItemBuilder<T>>(material: Materia
         return this as T
     }
 
-    fun build() = itemStack.apply { itemMeta = this.itemMeta }
+    fun build(): ItemStack {
+        itemStack.itemMeta = itemMeta
+        return itemStack
+    }
 }
