@@ -1,7 +1,7 @@
 For Developers
 ------
 
-Build Instructions
+Setup Instructions
 -----
 * ``git clone https://github.com/Bqckword/PluginAPI.git``
 * ``cd PluginAPI``
