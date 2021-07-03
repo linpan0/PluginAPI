@@ -1,13 +1,15 @@
 For Developers
 ------
 
-Build Instructions:
+Build Instructions
 -----
 * ``git clone https://github.com/Bqckword/PluginAPI.git``
 * ``cd PluginAPI``
 * ``./gradlew publishToMavenLocal``
 
-* Artifact Information:
+Artifact Information
+-----
+**NOTE:** ``x.y.z`` must be replaced with the version of PluginAPI you wish to use!
 ```java
 repository {
   mavenLocal()
