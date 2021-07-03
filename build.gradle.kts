@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "me.backword"
-version = "1.0.2"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -17,21 +17,10 @@ dependencies {
 }
 
 publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/bqckword/pluginapi")
-            credentials {
-                username = System.getenv("GITHUB_USERNAME")
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
-    }
-
     publications {
-        register<MavenPublication>("gpr") {
+        register<MavenPublication>("maven") {
             groupId = project.group.toString()
-            artifactId = "pluginapi"
+            artifactId = "PluginAPI"
             version = project.version.toString()
 
             from(components["kotlin"])
