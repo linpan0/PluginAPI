@@ -14,12 +14,13 @@ interface Menu : InventoryHolder {
                 if (event.clickedInventory === null) return@listen
                 if (event.currentItem === null) return@listen
                 val menu = event.clickedInventory?.holder as? Menu ?: return@listen
-                menu.getButton(event.slot).action(event)
+                val action = menu.getButton(event.slot)?.action ?: return@listen
+                action(event)
             }
         }
     }
 
-    fun getButton(slot: Int): Button
+    fun getButton(slot: Int): Button?
     fun onOpen(event: InventoryOpenEvent) {}
     fun onClose(event: InventoryCloseEvent) {}
 }
