@@ -20,4 +20,15 @@ inline fun <reified T : Event> listen(plugin: Plugin, priority: EventPriority = 
     Bukkit.getPluginManager().registerEvent(T::class.java, events, priority, events, plugin)
 }
 
+inline fun <T : Event> listen(plugin: Plugin, type: Class<T>, priority: EventPriority = EventPriority.NORMAL, crossinline listener: (T) -> Unit) {
+    val events = object : Events {
+        override fun execute(ignored: Listener, event: Event) {
+            if (!type.isInstance(event)) return
+            listener(event as T)
+        }
+    }
+
+    Bukkit.getPluginManager().registerEvent(type, events, priority, events, plugin)
+}
+
 fun <T : Event> callEvent(event: T) = Bukkit.getPluginManager().callEvent(event)
