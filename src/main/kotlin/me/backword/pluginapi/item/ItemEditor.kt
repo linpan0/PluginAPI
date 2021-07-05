@@ -19,3 +19,5 @@ fun ItemStack.editLore(action: (MutableList<Component>) -> Unit) = editMeta<Item
 }
 
 fun ItemStack.addLore(component: Component) = editLore { it.add(component) }
+
+fun ItemStack.setLore(index: Int, component: Component) = editLore { it[index] = component }
