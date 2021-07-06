@@ -12,7 +12,6 @@ interface Menu : InventoryHolder {
         fun listen(plugin: Plugin) {
             listen<InventoryClickEvent>(plugin) { event ->
                 if (event.clickedInventory === null) return@listen
-                if (event.currentItem === null) return@listen
                 val menu = event.clickedInventory?.holder as? Menu ?: return@listen
                 menu.onClick(event)
                 val action = menu.getButton(event.slot)?.action ?: return@listen
