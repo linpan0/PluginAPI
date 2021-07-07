@@ -3,6 +3,7 @@ package me.backword.pluginapi.menu
 import me.backword.pluginapi.events.listen
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.inventory.InventoryCloseEvent
+import org.bukkit.event.inventory.InventoryDragEvent
 import org.bukkit.event.inventory.InventoryOpenEvent
 import org.bukkit.inventory.InventoryHolder
 import org.bukkit.plugin.Plugin
@@ -27,6 +28,11 @@ interface Menu : InventoryHolder {
                 val menu = event.inventory.holder as? Menu ?: return@listen
                 menu.onClose(event)
             }
+
+            listen<InventoryDragEvent>(plugin) { event ->
+                val menu = event.inventory.holder as? Menu ?: return@listen
+                menu.onDrag(event)
+            }
         }
     }
 
@@ -34,4 +40,5 @@ interface Menu : InventoryHolder {
     fun onClick(event: InventoryClickEvent) {}
     fun onOpen(event: InventoryOpenEvent) {}
     fun onClose(event: InventoryCloseEvent) {}
+    fun onDrag(event: InventoryDragEvent) {}
 }
