@@ -5,4 +5,4 @@ before_install:
 install:
   - if ! ./ensure-java-16.bat use; then source ~/.sdkman/bin/sdkman-init.sh; fi
   - java -version
-  - publishToMavenLocal
+  - gradlew publishToMavenLocal
