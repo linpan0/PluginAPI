@@ -7,6 +7,7 @@ A library that helps with developing Spigot/Paper plugins for Minecraft
 repository {
     maven("https://jitpack.io")
 }
+
 dependencies {
     implementation("com.github.Bqckword:PluginAPI:x.y.z")
 }
