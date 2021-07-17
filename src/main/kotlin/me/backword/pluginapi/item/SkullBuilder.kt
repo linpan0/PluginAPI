@@ -1,5 +1,9 @@
 package me.backword.pluginapi.item
 
-// TODO: 7/4/2021  
-class SkullBuilder {
+import org.bukkit.Material
+
+class SkullBuilder(amount: Int = 1) : AbstractItemBuilder<SkullBuilder>(Material.PLAYER_HEAD, amount) {
+    fun base64() {
+
+    }
 }

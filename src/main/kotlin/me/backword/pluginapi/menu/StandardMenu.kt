@@ -19,14 +19,9 @@ open class StandardMenu(private val name: String, private val size: Int) : Menu 
 
     fun button(x: Int, y: Int, itemStack: ItemStack, action: ((InventoryClickEvent) -> Unit)? = { it.isCancelled = true } ) = buttons.set(y * 9 + x, Button(itemStack, action))
 
-    // Clicked item should never be null(so not Material.AIR), so a button theoretically should always exist
     override fun getButton(slot: Int) = buttons[slot]
 
     override fun getInventory() = Bukkit.createInventory(this, size, Component.text(name.colorize())).apply {
         buttons.entries.take(size).forEach { button -> setItem(button.key, button.value.itemStack) }
-    }
-
-    override fun toString(): String {
-        return "StandardMenu(name='$name', size=$size, buttons=$buttons)"
     }
 }
