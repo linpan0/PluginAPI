@@ -1,14 +1,11 @@
-PluginAPI
+# PluginAPI
 ------
-A library with small features for developing Paper plugins
+A library that helps with developing Spigot/Paper plugins for Minecraft
 
-For Developers
-------
-
-Artifact Information
+## Artifact Information
 -----
 **NOTE:** ``x.y.z`` must be replaced with the version of PluginAPI you wish to use!
-```kotlin
+```gradle
 repository {
     maven("https://jitpack.io")
 }
