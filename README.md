@@ -1,9 +1,7 @@
 # PluginAPI
-------
 A library that helps with developing Spigot/Paper plugins for Minecraft
 
 ## Artifact Information
------
 **NOTE:** ``x.y.z`` must be replaced with the version of PluginAPI you wish to use!
 ```gradle
 repository {
