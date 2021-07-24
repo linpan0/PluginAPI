@@ -25,7 +25,7 @@ class RequiredArgument(private val name: String, private val description: String
     override fun detailed() = "§e$name: §7$description"
 }
 
-class OptionalArgument(private val name: String, private val description: String, private val default: String) : Argument {
+class OptionalArgument(private val name: String, private val description: String, private val default: String? = null) : Argument {
     override fun formattedName() = "§e($name)"
-    override fun detailed() = "§e$name($default): §7$description"
+    override fun detailed() = "§e$name${if (default == null) "" else "($default)"}: §7$description"
 }
