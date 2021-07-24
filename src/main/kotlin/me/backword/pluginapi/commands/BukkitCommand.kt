@@ -16,8 +16,8 @@ class BukkitCommand(private val command: Command, vararg aliases: String) : org.
             when {
                 command.permissions[args.size] !== null && !sender.hasPermission(command.permissions[args.size]!!) -> sender.sendMessage("§9Permission> §cNo permission!")
                 !isPlayer && command.playerOnly -> sender.sendMessage("§9Permission> §cThis command can only be used by in-game players!")
-                args.size > command.maxLength -> sender.sendMessage("§9Usage> §cToo many arguments! ${command.usage.simple()}")
-                isPlayer && args.size < command.minPlayerLength || !isPlayer && args.size < command.minConsoleLength -> sender.sendMessage("§9Usage> §cNot enough arguments! ${command.usage.simple()}")
+                args.size > command.maxLength -> sender.sendMessage("§9Usage> ${command.usage.simple()}")
+                isPlayer && args.size < command.minPlayerLength || !isPlayer && args.size < command.minConsoleLength -> sender.sendMessage("§9Usage> ${command.usage.simple()}")
                 else -> command.run(sender, Arguments(args))
             }
         } catch (e: InvalidSyntaxException) {

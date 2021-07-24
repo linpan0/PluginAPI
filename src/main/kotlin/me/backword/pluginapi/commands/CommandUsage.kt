@@ -7,11 +7,12 @@ class CommandUsage(private vararg val args: Argument) {
     fun simple() = "§7/${aliases.joinToString("|")} ${args.joinToString(" ") { it.formattedName() }}"
 
     fun detailed() = buildString {
-        appendLine("§l§f/${aliases[0]} Command Help")
-        appendLine("§eAliases: §7${aliases.drop(0).joinToString(", ")}")
+        appendLine("§7§m----------§7§l/${aliases[0]} Command Help§7§m----------")
+        appendLine("§eAliases: §7${aliases.drop(1).joinToString(", ")}")
         appendLine("§eDescription: §7$description")
-        appendLine("§n§fArguments")
+        appendLine("§7§nArguments")
         args.map(Argument::detailed).forEach(::appendLine)
+        appendLine("§7§m--------------------------------------------------")
     }
 }
 
