@@ -5,7 +5,7 @@ import me.backword.pluginapi.commands.exception.InvalidSyntaxException
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-class CommandHandler(private val command: Command, vararg aliases: String) : org.bukkit.command.Command(aliases[0]) {
+class BukkitCommand(private val command: Command, vararg aliases: String) : org.bukkit.command.Command(aliases[0]) {
     init {
         setAliases(aliases.toMutableList())
     }
@@ -16,7 +16,7 @@ class CommandHandler(private val command: Command, vararg aliases: String) : org
             when {
                 command.permissions[args.size] !== null && !sender.hasPermission(command.permissions[args.size]!!) -> sender.sendMessage("§9Permission> §cNo permission!")
                 !isPlayer && command.playerOnly -> sender.sendMessage("§9Permission> §cThis command can only be used by in-game players!")
-                args.size > command.maxLength -> sender.sendMessage("§9Arguments> §cToo many arguments!")
+                args.size > command.maxLength -> sender.sendMessage("§9Arguments> §cToo many arguments! §7Usage: ${command.usage}")
                 isPlayer && args.size < command.minPlayerLength || !isPlayer && args.size < command.minConsoleLength -> sender.sendMessage("§9Arguments> §cNot enough arguments!")
                 else -> command.run(sender, Arguments(args))
             }

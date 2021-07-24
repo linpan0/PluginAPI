@@ -7,10 +7,14 @@ import java.lang.reflect.Field
 
 class CommandManager(private val plugin: Plugin) {
     companion object {
-        private val COMMAND_MAP_FIELD: Field = Bukkit.getServer()::class.java.getDeclaredField("commandMap").apply { isAccessible = true }
+        private val COMMAND_MAP_FIELD = Bukkit.getServer()::class.java.getDeclaredField("commandMap").apply { isAccessible = true }
     }
 
     private val commandMap = COMMAND_MAP_FIELD.get(Bukkit.getServer()) as CommandMap
 
-    fun registerCommand(command: Command, vararg aliases: String) = commandMap.register(aliases[0], plugin.name, CommandHandler(command, *aliases))
+    fun registerCommand(command: Command, vararg aliases: String) {
+        command.usage.aliases = aliases
+        command.usage.description = command.description
+        commandMap.register(aliases[0], plugin.name, BukkitCommand(command, *aliases))
+    }
 }
