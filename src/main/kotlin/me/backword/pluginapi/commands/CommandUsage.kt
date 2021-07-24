@@ -8,10 +8,10 @@ class CommandUsage(private vararg val args: Argument) {
 
     fun detailed() = buildString {
         appendLine("§8§m-----------§7§l/${aliases[0]} Command Help§8§m-----------")
-        if (aliases.size >= 2) appendLine("§eAliases§7: ${aliases.drop(1).joinToString(", ")}")
-        appendLine("§eDescription§7: $description")
+        if (aliases.size >= 2) appendLine("§e§lAliases§7: ${aliases.drop(1).joinToString(", ")}")
+        appendLine("§e§lDescription§7: $description")
         if (args.isEmpty()) return@buildString
-        appendLine("§7§l§nArguments")
+        appendLine("§7§lArguments:")
         args.map(Argument::detailed).forEach(::appendLine)
     }
 }
