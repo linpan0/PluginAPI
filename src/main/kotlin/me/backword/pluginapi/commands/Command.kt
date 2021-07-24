@@ -21,10 +21,3 @@ abstract class Command {
         @JvmStatic protected fun allPlayerNames() = Bukkit.getOnlinePlayers().map { (it.displayName() as TextComponent).content() }.toMutableList()
     }
 }
-
-class Foo : Command() {
-
-    override fun run(sender: CommandSender, args: Arguments) {
-        TODO("Not yet implemented")
-    }
-}
