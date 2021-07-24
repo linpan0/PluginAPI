@@ -10,8 +10,7 @@ abstract class Command {
     open val minPlayerLength = 0
     open val minConsoleLength = 0
     open val maxLength = 1
-    open val description = ""
-    open val usage = CommandUsage()
+    abstract val usage: CommandUsage
     val permissions = hashMapOf<Int, String>()
 
     abstract fun run(sender: CommandSender, args: Arguments)

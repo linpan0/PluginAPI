@@ -14,7 +14,6 @@ class CommandManager(private val plugin: Plugin) {
 
     fun registerCommand(command: Command, vararg aliases: String) {
         command.usage.aliases = aliases
-        command.usage.description = command.description
         commandMap.register(aliases[0], plugin.name, BukkitCommand(command, *aliases))
     }
 }
