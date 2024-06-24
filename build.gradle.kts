@@ -1,35 +1,41 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
-    kotlin("jvm") version "1.5.21"
-    `maven-publish`
+  kotlin("jvm") version "2.0.0"
+  `maven-publish`
 }
 
 group = "me.backword"
-version = "1.0.3"
+version = "4"
 
 repositories {
-    mavenCentral()
-    maven("https://papermc.io/repo/repository/maven-public/")
+  mavenCentral()
+  maven("https://repo.papermc.io/repository/maven-public/")
 }
 
 dependencies {
-    implementation(kotlin("stdlib"))
-    compileOnly("io.papermc.paper:paper-api:1.17-R0.1-SNAPSHOT")
+  implementation(kotlin("stdlib"))
+  compileOnly("io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT")
 }
 
 publishing {
-    publications {
-        register<MavenPublication>("maven") {
-            groupId = project.group.toString()
-            artifactId = "PluginAPI"
-            version = project.version.toString()
+  publications {
+    register<MavenPublication>("maven") {
+      groupId = project.group.toString()
+      artifactId = "PluginAPI"
+      version = project.version.toString()
 
-            from(components["kotlin"])
-        }
+      from(components["kotlin"])
     }
+  }
 }
 
-tasks {
-    compileKotlin {
-        kotlinOptions.jvmTarget = "16"
-    }
+kotlin {
+  compilerOptions {
+    jvmTarget.set(JvmTarget.JVM_21)
+  }
+}
+
+java {
+  toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }
