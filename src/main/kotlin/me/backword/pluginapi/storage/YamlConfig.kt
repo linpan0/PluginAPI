@@ -30,9 +30,9 @@ class YamlConfig(private val path: Path) {
   }
 
   fun getOrCreateSection(path: String) = if (data.isConfigurationSection(path)) data.getConfigurationSection(path)!! else data.createSection(path)
-  fun getOrSetLocation(key: String, default: Any) = getOrSet(key, default) { data.getLocation(key) }
-  fun getOrSet(key: String, default: Any?) = getOrSet(key, default) { data.get(key) }
-  fun getOrSetString(key: String, default: String) = getOrSet(key, default) { data.getString(key) }
+  fun getOrSetLocation(key: String, default: Any) = getOrSet(key, default) { data.getLocation(key)!! }
+  fun getOrSet(key: String, default: Any?) = getOrSet(key, default) { data.get(key)!! }
+  fun getOrSetString(key: String, default: String) = getOrSet(key, default) { data.getString(key)!! }
   fun getOrSetInt(key: String, default: Int) = getOrSet(key, default) { data.getInt(key) }
   fun getOrSetBoolean(key: String, default: Boolean) = getOrSet(key, default) { data.getBoolean(key) }
   fun getOrSetDouble(key: String, default: Double) = getOrSet(key, default) { data.getDouble(key) }
